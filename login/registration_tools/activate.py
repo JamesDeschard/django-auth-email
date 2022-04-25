@@ -8,7 +8,6 @@ from login.registration_tools.token_generator import account_activation_token
 
 
 class Activate(View):
-    template_name = ''
 
     def get(self, request, *args, **kwargs):
         user = get_user_model() 

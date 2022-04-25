@@ -14,7 +14,7 @@ class HomeView(HomeAndSignupView):
 
 
 class ActivateUserView(Activate):
-    template_name = 'registration/confirmed_account.html'
+    pass
 
 
 class ChangePasswordView(ChangePassword):
