@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    {%if user.is_superuser%}
+        Hi SuperUser {{ user.username }}!
+        <p>As you are a super user you can create an account for a user. He will have to confirm the account with his email</p>
+        <h2>New User Form</h2>
+        <form method="post">  
+            {% csrf_token %}  
+              {% for field in form %}  
+              <p>  
+                {{ field.label_tag }}<br>  
+                {{ field }}  
+                {% if field.help_text %}  
+                  <small style="display: none ">{{ field.help_text }}</small>  
+                {% endif %}  
+                {% for error in field.errors %}  
+                  <p style="color: red">{{ error }}</p>  
+                {% endfor %}  
+              </p>  
+              {% endfor %}  
+            <button type="submit">Confirm the creation of this user</button>  
+
+            <p><a href="{% url 'logout' %}">Log Out</a></p>
+    {%else%}
+        Hi {{ user.username }}!
+        {% for message in messages %}
+        {{message}}
+        {%endfor%}
+        <p><a href="{% url 'logout' %}">Log Out</a></p>
+    {%endif%}
+{% else %}
+<h1>If you have an account</h1>
+  <a href="{% url 'login' %}">Log In</a>
+{% endif %}
+{% endblock %}
