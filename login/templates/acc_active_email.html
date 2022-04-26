@@ -1,6 +1,7 @@
 {% autoescape off %}  
 Hi {{ user.username }},  
-Your new password is: {{password}}. You will be asked to change it on your first login.
+Your new password is: {{password}} 
+You will be asked to change it on your first login.
 Please click on the link to confirm your registration,  
 http://{{ domain }}{% url 'activate' uidb64=uid token=token %}  
 {% endautoescape %}  
