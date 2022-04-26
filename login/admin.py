@@ -5,7 +5,7 @@ class RegisterUser(admin.ModelAdmin):
     pass
 
 class RegisterNewUser(admin.ModelAdmin):
-    action = []
+    pass
 
 admin.site.register(CreateNewUserProcedure, RegisterNewUser)
 admin.site.register(User, RegisterUser)

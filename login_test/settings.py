@@ -24,6 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Ajouter cette App pour avoir acces aux donnees relatives au site
+    'django.contrib.sites',
     'login'
 ]
 
@@ -118,8 +120,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'email ici'
-EMAIL_HOST_PASSWORD = 'mdp ici'
+EMAIL_HOST_USER = 'adresse mail ici'
+EMAIL_HOST_PASSWORD = 'mot de passe ici'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'default from email'
+
+# Site ID 
+
+SITE_ID = 1

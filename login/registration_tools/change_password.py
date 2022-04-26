@@ -16,6 +16,7 @@ class ChangePassword(View):
     def post(self, request, *args, **kwargs):
         user = request.user
         form = PasswordChangeForm(user, request.POST)
+
         if form.is_valid():
             if user.is_first_connection is True:
                 user.is_first_connection = False
@@ -23,6 +24,7 @@ class ChangePassword(View):
             update_session_auth_hash(request, user) 
             messages.success(request, 'Your password was successfully updated!')
             return redirect('home')
+
         else:
             messages.error(request, 'Please correct the error below.')
             return render(request, 'registration/change_password.html', {'form': form})
